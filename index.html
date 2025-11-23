@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Marktransact</title>
+  <meta name="description" content="Marktransact - mini boutique vitrine"/>
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <style>
+.gradient-bg {
+    background: linear-gradient(135deg,
+        #1e1e1e 0%,
+        #252525 30%,
+        #2a2a2a 60%,
+        #2D2D2D 100%
+    );
+}
+
+.radient-bg {
+    background: linear-gradient(120deg,
+        #000000 0%,
+        #0A1B2A 25%,
+        #152C43 50%,
+        #203A43 75%,
+        #2C5364 100%
+    );
+}
+
+
+
+    .adient-bg {
+    background: linear-gradient(135deg, #141E30 0%, #243B55 100%);
+}
+     .dient-bg {
+    background: linear-gradient(135deg, #2B1055 0%, #7597DE 100%);
+}
+
+    /* Custom styles */
+    .accent { color: #0B3C5D; }
+    .accent-bg { background-color: #0B3C5D; }
+    .gold { color: #D4AF37; }
+
+    .nav-scrolled {
+  background-color: rgba(0, 0, 0, 0.7); /* léger fond sombre transparent */
+  backdrop-filter: blur(6px);            /* flou léger du fond */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+
+}
+    /* Navbar style when scrolled */
+    .nav-scrolled {
+      background-color: rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    /* Smooth transform for header hide/show */
+    #header { transition: transform 0.4s ease, background-color 0.3s ease; }
+  </style>
+  <script>
+    tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#1E1E1E",   // couleur principale du site
+        accent: "#00C9A7",    // couleur d'accent turquoise
+        text: "#FFFFFF"       // texte blanc
+      },
+      fontFamily: {
+        'montserrat': ['Montserrat', 'sans-serif']
+      }
+    }
+  }
+}
+
+
+  </script>
+</head>
+<body class="bg-white text-gray-800">
+  <header id="header" class="fixed top-0 left-0 w-full adient-bg z-50">
+    <div class="container mx-auto flex items-center justify-between py-4 px-6">
+      <!-- Logo -->
+      <h1 class="text-2xl md:text-3xl text-accent font-bold">Marktransact</h1>
+
+      <!-- Navigation desktop -->
+      <nav class="hidden md:flex space-x-8 text-white">
+        <a href="index.html" class=" hover:text-gold transition font-medium">Accueil</a>
+        <a href="vetements.html" class=" hover:text-gold transition font-medium">Vêtements</a>
+        <a href="chaussures.html" class=" hover:text-gold transition font-medium">Chaussures</a>
+        <a href="#nouveauté" class=" hover:text-gold transition font-medium">Nouveautés</a>
+        <a href="#contact" class=" hover:text-gold transition font-medium">Contact</a>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+        <i data-feather="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black text-white bg-opacity-90 w-full px-6 py-4 flex flex-col space-y-4">
+      <a href="index.html" class=" hover:text-gold transition font-medium">Accueil</a>
+        <a href="vetements.html" class=" hover:text-gold transition font-medium">Vêtements</a>
+        <a href="chaussures.html" class=" hover:text-gold transition font-medium">Chaussures</a>
+        <a href="#nouveauté" class=" hover:text-gold transition font-medium">Nouveautés</a>
+        <a href="#contact" class=" hover:text-gold transition font-medium">Contact</a>
+      <button id="dark-mode-toggle" class=" hover:text-gold transition py-2 text-left">
+        Mode Sombre
+      </button>
+    </div>
+  </header>
+
+   <!-- Hero -->
+  <section class="relative">
+    <div class="min-h-screen md:min-h-screen bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3');">
+      <div class="absolute inset-0 bg-black/40 flex items-center">
+        <div class="max-w-4xl mx-auto px-6 text-white" data-aos="fade-up">
+          <h2 class="text-3xl md:text-5xl font-extrabold">“Marchez avec style, avancez avec confiance.” <span class="gold">Marktransact</span></h2>
+          <p class="mt-4 max-w-xl md:text-2xl font-extrabold">“Commandez en ligne, recevez chez vous. Simple, rapide et fiable.”</p>
+          <a href="#properties" class="inline-block mt-6 px-6 py-3 gradient-bg text-accent font-semibold rounded-lg hover:shadow-lg" id="galerie">Découvrir nos produits</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+        <section class="py-20 bg-white adient-bg">
+            <div class="container mx-auto px-4 gr">
+                <h2 class="text-4xl font-serif text-white text-center mb-16 text-primary" data-aos="fade-up">Nos Catégories</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Vêtements -->
+                    <div class="relative group cursor-pointer" data-aos="fade-right" data-aos-delay="100">
+                        <div class="overflow-hidden">
+                            <img 
+                                src="https://picsum.photos/600/800?random=2" 
+                                alt="Collection vêtements" 
+                                class="w-full h-88 object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <h3 class="text-3xl font-serif text-white">Vêtements</h3>
+                        </div>
+                    </div>
+
+                    <!-- Bijoux -->
+                    <div class="relative group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                        <div class="overflow-hidden">
+                            <img 
+                                src="https://picsum.photos/600/800?random=3" 
+                                alt="Collection bijoux" 
+                                class="w-full h-88 object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <h3 class="text-3xl font-serif text-white">Bijoux</h3>
+                        </div>
+                    </div>
+
+                    <!-- Chaussures -->
+                    <div class="relative group cursor-pointer" data-aos="fade-left" data-aos-delay="300">
+                        <div class="overflow-hidden">
+                            <img 
+                                src="https://picsum.photos/600/800?random=4" 
+                                alt="Collection chaussures" 
+                                class="w-full h-88 object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <h3 class="text-3xl font-serif text-white">Chaussures</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        
+
+
+
+        <!-- Nouveautés -->
+        <section id="Nouveautés"  class="py-4 bg-light radient-bg ">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-serif text-white mb-4 text-primary" data-aos="fade-up">Nouveautés</h2>
+                <p class="text-center text-white mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                “Nouvelles arrivées, nouvelles envies.”
+                </p>
+
+                <!-- Ligne horizontale défilante -->
+                <div class="flex space-x-6 overflow-x-auto scrollbar-hide py-4 ">
+                <!-- Product 1 -->
+                       <div class="adient-bg p-4 rounded-lg min-w-[280px] shadow" data-aos="zoom-in" data-aos-delay="80">
+                            <img src="2.jpg" alt="Produit" class="w-full h-40 object-cover rounded mb-3">
+                            <h4 class="font-semibold">Bracelet Lune</h4>
+                            <p class="text-sm text-gray-600">Prix : 19 €</p>
+                            <a href="https://wa.me/22956496861" target="_blank" class="mt-3 inline-block px-4 py-2 bg-pink-200 text-pink-800 rounded">Commander sur WhatsApp</a>
+                       </div>
+
+                
+
+                <!-- Product 2 -->
+                <div class="adient-bg p-4 rounded-lg min-w-[280px] shadow" data-aos="zoom-in" data-aos-delay="80">
+                   <img src="2.jpg" alt="Produit" class="w-full h-40 object-cover rounded mb-3">
+                    <h4 class="font-semibold">Bracelet Lune</h4>
+                    <p class="text-sm text-gray-600">Prix : 19 €</p>
+                    <a href="https://wa.me/22956496861" target="_blank" class="mt-3 inline-block px-4 py-2 bg-pink-200 text-pink-800 rounded">Commander sur WhatsApp</a>
+                </div>            
+
+                <!-- Product 3 -->
+                <div class="adient-bg p-4 rounded-lg min-w-[280px] shadow" data-aos="zoom-in" data-aos-delay="80">
+                   <img src="2.jpg" alt="Produit" class="w-full h-40 object-cover rounded mb-3">
+                    <h4 class="font-semibold">Bracelet Lune</h4>
+                    <p class="text-sm text-gray-600">Prix : 19 €</p>
+                    <a href="https://wa.me/22956496861" target="_blank" class="mt-3 inline-block px-4 py-2 bg-pink-200 text-pink-800 rounded">Commander sur WhatsApp</a>
+                </div>            
+
+
+                <!-- Product 4 -->
+                <div class="adient-bg p-4 rounded-lg min-w-[280px] shadow" data-aos="zoom-in" data-aos-delay="80">
+                   <img src="2.jpg" alt="Produit" class="w-full h-40 object-cover rounded mb-3">
+                    <h4 class="font-semibold">Bracelet Lune</h4>
+                    <p class="text-sm text-gray-600">Prix : 19 €</p>
+                    <a href="https://wa.me/22956496861" target="_blank" class="mt-3 inline-block px-4 py-2 bg-pink-200 text-pink-800 rounded">Commander sur WhatsApp</a>
+                </div>   
+
+                <!-- Product 5 -->
+                <div class="adient-bg p-4 rounded-lg min-w-[280px] shadow" data-aos="zoom-in" data-aos-delay="80">
+                   <img src="2.jpg" alt="Produit" class="w-full h-40 object-cover rounded mb-3">
+                    <h4 class="font-semibold">Bracelet Lune</h4>
+                    <p class="text-sm text-gray-600">Prix : 19 €</p>
+                    <a href="https://wa.me/22956496861" target="_blank" class="mt-3 inline-block px-4 py-2 bg-pink-200 text-pink-800 rounded">Commander sur WhatsApp</a>
+                </div>   
+
+                <!-- Product 6 -->
+                <div class="adient-bg p-4 rounded-lg min-w-[280px] shadow" data-aos="zoom-in" data-aos-delay="80">
+                   <img src="2.jpg" alt="Produit" class="w-full h-40 object-cover rounded mb-3">
+                    <h4 class="font-semibold">Bracelet Lune</h4>
+                    <p class="text-sm text-gray-600">Prix : 19 €</p>
+                    <a href="https://wa.me/22956496861" target="_blank" class="mt-3 inline-block px-4 py-2 bg-pink-200 text-pink-800 rounded">Commander sur WhatsApp</a>
+                </div>   
+
+
+                <!-- Product 7 -->
+                <div class="adient-bg p-4 rounded-lg min-w-[280px] shadow" data-aos="zoom-in" data-aos-delay="80">
+                   <img src="2.jpg" alt="Produit" class="w-full h-40 object-cover rounded mb-3">
+                    <h4 class="font-semibold">Bracelet Lune</h4>
+                    <p class="text-sm text-gray-600">Prix : 19 €</p>
+                    <a href="https://wa.me/22956496861" target="_blank" class="mt-3 inline-block px-4 py-2 bg-pink-200 text-pink-800 rounded">Commander sur WhatsApp</a>
+                </div>   
+
+                <!-- Product 8 -->
+                <div class="adient-bg p-4 rounded-lg min-w-[280px] shadow" data-aos="zoom-in" data-aos-delay="80">
+                   <img src="2.jpg" alt="Produit" class="w-full h-40 object-cover rounded mb-3">
+                    <h4 class="font-semibold">Bracelet Lune</h4>
+                    <p class="text-sm text-gray-600">Prix : 19 €</p>
+                    <a href="https://wa.me/22956496861" target="_blank" class="mt-3 inline-block px-4 py-2 bg-pink-200 text-pink-800 rounded">Commander sur WhatsApp</a>
+                </div>   
+
+                <!-- Product 9 -->
+                <div class="adient-bg p-4 rounded-lg min-w-[280px] shadow" data-aos="zoom-in" data-aos-delay="80">
+                   <img src="2.jpg" alt="Produit" class="w-full h-40 object-cover rounded mb-3">
+                    <h4 class="font-semibold">Bracelet Lune</h4>
+                    <p class="text-sm text-gray-600">Prix : 19 €</p>
+                    <a href="https://wa.me/22956496861" target="_blank" class="mt-3 inline-block px-4 py-2 bg-pink-200 text-pink-800 rounded">Commander sur WhatsApp</a>
+                </div>   
+
+                <!-- Product 10 -->
+                <div class="adient-bg p-4 rounded-lg min-w-[280px] shadow" data-aos="zoom-in" data-aos-delay="80">
+                   <img src="2.jpg" alt="Produit" class="w-full h-40 object-cover rounded mb-3">
+                    <h4 class="font-semibold">Bracelet Lune</h4>
+                    <p class="text-sm text-gray-600">Prix : 19 €</p>
+                    <a href="https://wa.me/22956496861" target="_blank" class="mt-3 inline-block px-4 py-2 bg-pink-200 text-pink-800 rounded">Commander sur WhatsApp</a>
+                </div>   
+
+                <!-- Product 11 -->
+                <div class="adient-bg p-4 rounded-lg min-w-[280px] shadow" data-aos="zoom-in" data-aos-delay="80">
+                   <img src="2.jpg" alt="Produit" class="w-full h-40 object-cover rounded mb-3">
+                    <h4 class="font-semibold">Bracelet Lune</h4>
+                    <p class="text-sm text-gray-600">Prix : 19 €</p>
+                    <a href="https://wa.me/22956496861" target="_blank" class="mt-3 inline-block px-4 py-2 bg-pink-200 text-pink-800 rounded">Commander sur WhatsApp</a>
+                </div>   
+
+                <!-- Product 12 -->
+                <div class="adient-bg p-4 rounded-lg min-w-[280px] shadow" data-aos="zoom-in" data-aos-delay="80">
+                   <img src="2.jpg" alt="Produit" class="w-full h-40 object-cover rounded mb-3">
+                    <h4 class="font-semibold">Bracelet Lune</h4>
+                    <p class="text-sm text-gray-600">Prix : 19 €</p>
+                    <a href="https://wa.me/22956496861" target="_blank" class="mt-3 inline-block px-4 py-2 bg-pink-200 text-pink-800 rounded">Commander sur WhatsApp</a>
+                </div>   
+
+                <!-- Product 13 -->
+                <div class="adient-bg p-4 rounded-lg min-w-[280px] shadow" data-aos="zoom-in" data-aos-delay="80">
+                   <img src="2.jpg" alt="Produit" class="w-full h-40 object-cover rounded mb-3">
+                    <h4 class="font-semibold">Bracelet Lune</h4>
+                    <p class="text-sm text-gray-600">Prix : 19 €</p>
+                    <a href="https://wa.me/22956496861" target="_blank" class="mt-3 inline-block px-4 py-2 bg-pink-200 text-pink-800 rounded">Commander sur WhatsApp</a>
+                </div>   
+
+                <!-- Product 14 -->
+                <div class="adient-bg p-4 rounded-lg min-w-[280px] shadow" data-aos="zoom-in" data-aos-delay="80">
+                   <img src="2.jpg" alt="Produit" class="w-full h-40 object-cover rounded mb-3">
+                    <h4 class="font-semibold">Bracelet Lune</h4>
+                    <p class="text-sm text-gray-600">Prix : 19 €</p>
+                    <a href="https://wa.me/22956496861" target="_blank" class="mt-3 inline-block px-4 py-2 bg-pink-200 text-pink-800 rounded">Commander sur WhatsApp</a>
+                </div>   
+                
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+    <section class="py-16 adient-bg">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif text-3xl text-center text-white text-primary font-extrabold mb-12" data-aos="fade-up">Pourquoi nous choisir ?</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center" data-aos="fade-up" data-aos-delay="100">
+                    
+                    <h3 class="font-serif text-xl text-primary mb-2">Commande facile via WhatsApp</h3>
+                    <p class="text-gray-600">Cliquez sur le bouton WhatsApp depuis la page de n’importe quel produit et passez votre commande immédiatement.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center" data-aos="fade-up" data-aos-delay="200">
+                   
+                    <h3 class="font-serif text-xl text-primary mb-2">Livraison rapide</h3>
+                    <p class="text-gray-600">Nous assurons une livraison dans les meilleurs délais pour vous garantir une expérience fluide.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center" data-aos="fade-up" data-aos-delay="300">
+                    
+                    <h3 class="font-serif text-xl text-primary mb-2">Produits variés</h3>
+                    <p class="text-gray-600">Mode, accessoires, cuisine, beauté… un large choix au même endroit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- comment commander? -->
+    <section class="py-16 bg-light dient-bg">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif text-3xl text-center text-primary mb-12" data-aos="fade-up">Comment commander ?</h2>
+
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Timeline item 1 -->
+                <div class="timeline-item relative mb-16" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-4 md:mb-0 md:pr-8 text-center md:text-right">
+                            <h3 class="font-extrabold text-2xl text-primary">1</h3>
+                        </div>
+                        <div class="md:w-1/2 md:pl-8">
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+                                
+                                <p class="text-gray-600">Parcourez les produits sur notre site.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline item 2 -->
+                <div class="timeline-item relative mb-16" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-4 md:mb-0 md:pr-8 text-center md:text-right order-1 md:order-none">
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+                                
+                                <p class="text-gray-600">Cliquez sur “Commander via WhatsApp”.</p>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-8 order-0 md:order-none">
+                            <h3 class="font-extrabold text-2xl text-primary">2</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline item 3 -->
+                <div class="timeline-item relative mb-16" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-4 md:mb-0 md:pr-8 text-center md:text-right">
+                            <h3 class="font-extrabold text-2xl text-primary">3</h3>
+                        </div>
+                        <div class="md:w-1/2 md:pl-8">
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+                                
+                                <p class="text-gray-600">Finalisez votre commande directement dans la conversation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline item 4 -->
+                <div class="timeline-item relative" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-4 md:mb-0 md:pr-8 text-center md:text-right order-1 md:order-none">
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+      
+                                <p class="text-gray-600">Recevez votre marchandise rapidement.</p>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-8 order-0 md:order-none">
+                            <h3 class="font-extrabold text-2xl text-primary">4</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+        
+
+
+
+
+        
+
+
+
+        
+
+
+
+  <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div data-aos="fade-up">
+                    <h3 class="text-2xl font-serif mb-4">Élégance<span class="text-secondary">Parisienne</span></h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Votre destination pour une mode raffinée et intemporelle. Qualité, élégance et excellence.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="font-semibold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Accueil</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Vêtements</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Bijoux</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Chaussures</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Nouveautés</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="font-semibold mb-4">Service Client</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Livraison</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Retours</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">CGV</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div  id="contact" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <div class="space-y-2 text-gray-300">
+                        <p class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-secondary"></i>
+                            123 Avenue Montaigne, 75008 Paris
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-secondary"></i>
+                            +33 1 42 68 53 01
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-secondary"></i>
+                            contact@elegance-parisienne.fr
+                        </p>
+                    </div>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2024 Élégance Parisienne. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+
+  <!-- AOS script -->
+ <!-- Scripts -->
+ <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Feather icons
+      feather.replace();
+
+      // AOS
+      AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+
+      // Mobile menu toggle
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        const icon = menuBtn.querySelector('svg');
+        if (mobileMenu.classList.contains('hidden')) icon.setAttribute('data-feather','menu');
+        else icon.setAttribute('data-feather','x');
+        feather.replace();
+      });
+
+      // Dark mode toggle
+      const darkToggle = document.getElementById('dark-mode-toggle');
+      darkToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        darkToggle.textContent = document.body.classList.contains('dark-mode') ? 'Mode Clair' : 'Mode Sombre';
+      });
+    });
+
+    // Scroll header
+    let lastScrollTop = 0;
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', function() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) header.style.transform = 'translateY(-100%)';
+      else header.style.transform = 'translateY(0)';
+
+      // Navbar style after scroll
+      if (scrollTop > 100) header.classList.add('nav-scrolled');
+      else header.classList.remove('nav-scrolled');
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+  </script>
+
+
+</body>
+</html>
+</body>
+</html>
+
+
+<!-- ==========================
+End of document
+========================== -->

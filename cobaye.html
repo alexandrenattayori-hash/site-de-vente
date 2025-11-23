@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élégance Parisienne - Vêtements, Bijoux & Chaussures</title>
+    <meta name="description" content="Découvrez notre collection exclusive de vêtements, bijoux et chaussures de luxe. Élégance et qualité au rendez-vous.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1a1a1a",
+                        secondary: "#8B7355",
+                        accent: "#D4AF37",
+                        light: "#f8f8f8",
+                        dark: "#2c2c2c"
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                        '88': '22rem'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(26,26,26,0.9) 0%, rgba(139,115,85,0.8) 100%);
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        .sticky-nav {
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.95);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-light">
+    <!-- Navigation Sticky -->
+    <header class="sticky top-0 z-50 sticky-nav shadow-sm">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-serif font-bold text-primary">Élégance<span class="text-secondary">Parisienne</span></h1>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-primary hover:text-secondary transition-colors duration-300 font-medium">Accueil</a>
+                    <a href="#" class="text-primary hover:text-secondary transition-colors duration-300 font-medium">Vêtements</a>
+                    <a href="#" class="text-primary hover:text-secondary transition-colors duration-300 font-medium">Bijoux</a>
+                    <a href="#" class="text-primary hover:text-secondary transition-colors duration-300 font-medium">Chaussures</a>
+                    <a href="#" class="text-primary hover:text-secondary transition-colors duration-300 font-medium">Nouveautés</a>
+                </div>
+
+                <!-- Icons -->
+                <div class="flex items-center space-x-4">
+                    <button class="text-primary hover:text-secondary transition-colors">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="text-primary hover:text-secondary transition-colors">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button class="text-primary hover:text-secondary transition-colors">
+                        <i class="fas fa-shopping-bag"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Banner -->
+        <section class="relative h-screen flex items-center justify-center">
+            <img 
+                src="https://picsum.photos/1920/1080?random=1" 
+                alt="Collection de mode luxueuse" 
+                class="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+            />
+            <div class="absolute inset-0 hero-gradient"></div>
+            <div class="relative z-10 text-center text-white px-4" data-aos="fade-up">
+                <h2 class="text-5xl md:text-7xl font-serif font-bold mb-6">Collection Automne-Hiver 2024</h2>
+                <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Découvrez l'élégance intemporelle à travers nos pièces exclusives</p>
+                <button class="bg-secondary hover:bg-primary text-white px-8 py-4 rounded-none font-medium transition-colors duration-300">
+                    Découvrir la Collection
+                </button>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-serif text-center mb-16 text-primary" data-aos="fade-up">Nos Catégories</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Vêtements -->
+                    <div class="relative group cursor-pointer" data-aos="fade-right" data-aos-delay="100">
+                        <div class="overflow-hidden">
+                            <img 
+                                src="https://picsum.photos/600/800?random=2" 
+                                alt="Collection vêtements" 
+                                class="w-full h-88 object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <h3 class="text-3xl font-serif text-white">Vêtements</h3>
+                        </div>
+                    </div>
+
+                    <!-- Bijoux -->
+                    <div class="relative group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                        <div class="overflow-hidden">
+                            <img 
+                                src="https://picsum.photos/600/800?random=3" 
+                                alt="Collection bijoux" 
+                                class="w-full h-88 object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <h3 class="text-3xl font-serif text-white">Bijoux</h3>
+                        </div>
+                    </div>
+
+                    <!-- Chaussures -->
+                    <div class="relative group cursor-pointer" data-aos="fade-left" data-aos-delay="300">
+                        <div class="overflow-hidden">
+                            <img 
+                                src="https://picsum.photos/600/800?random=4" 
+                                alt="Collection chaussures" 
+                                class="w-full h-88 object-cover group-hover:scale-110 transition-transform duration-500"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                            <h3 class="text-3xl font-serif text-white">Chaussures</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="py-20 bg-light">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-serif text-center mb-4 text-primary" data-aos="fade-up">Produits Phares</h2>
+                <p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Découvrez nos pièces les plus prisées, alliant qualité exceptionnelle et design raffiné
+                </p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Product 1 -->
+                    <div class="bg-white product-card shadow-sm" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="relative overflow-hidden">
+                            <img 
+                                src="https://picsum.photos/400/500?random=5" 
+                                alt="Robe de soirée en soie" 
+                                class="w-full h-88 object-cover"
+                                loading="lazy"
+                            />
+                            <div class="absolute top-4 right-4">
+                                <span class="bg-secondary text-white px-3 py-1 text-sm">Nouveau</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-semibold text-lg mb-2">Robe de Soirée en Soie</h3>
+                            <p class="text-gray-600 text-sm mb-4">Élégance et sophistication</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold text-xl">€289</span>
+                                <button class="bg-primary hover:bg-secondary text-white px-4 py-2 transition-colors duration-300">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="bg-white product-card shadow-sm" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="relative overflow-hidden">
+                            <img 
+                                src="https://picsum.photos/400/500?random=6" 
+                                alt="Collier en or 18 carats" 
+                                class="w-full h-88 object-cover"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-semibold text-lg mb-2">Collier en Or 18 Carats</h3>
+                            <p class="text-gray-600 text-sm mb-4">Pièce signature</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold text-xl">€450</span>
+                                <button class="bg-primary hover:bg-secondary text-white px-4 py-2 transition-colors duration-300">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="bg-white product-card shadow-sm" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="relative overflow-hidden">
+                            <img 
+                                src="https://picsum.photos/400/500?random=7" 
+                                alt="Escarpins en cuir verni" 
+                                class="w-full h-88 object-cover"
+                                loading="lazy"
+                            />
+                            <div class="absolute top-4 right-4">
+                                <span class="bg-accent text-white px-3 py-1 text-sm">Best Seller</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-semibold text-lg mb-2">Escarpins en Cuir Verni</h3>
+                            <p class="text-gray-600 text-sm mb-4">Confort et élégance</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold text-xl">€189</span>
+                                <button class="bg-primary hover:bg-secondary text-white px-4 py-2 transition-colors duration-300">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="bg-white product-card shadow-sm" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="relative overflow-hidden">
+                            <img 
+                                src="https://picsum.photos/400/500?random=8" 
+                                alt="Ensemble tailleur premium" 
+                                class="w-full h-88 object-cover"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-semibold text-lg mb-2">Ensemble Tailleur Premium</h3>
+                            <p class="text-gray-600 text-sm mb-4">Élégance professionnelle</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-primary font-bold text-xl">€320</span>
+                                <button class="bg-primary hover:bg-secondary text-white px-4 py-2 transition-colors duration-300">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <img 
+                            src="https://picsum.photos/600/700?random=9" 
+                            alt="Notre histoire et philosophie" 
+                            class="w-full rounded-lg shadow-lg"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div data-aos="fade-left" data-aos-delay="200">
+                        <h2 class="text-4xl font-serif mb-6 text-primary">Notre Histoire</h2>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Fondée en 2010, Élégance Parisienne incarne l'excellence de la mode française. 
+                            Notre passion pour le savoir-faire artisanal et les matières nobles nous guide 
+                            dans chaque création.
+                        </p>
+                        <p class="text-gray-600 mb-8 leading-relaxed">
+                            Nous sélectionnons rigoureusement chaque pièce pour vous offrir des collections 
+                            qui allient tradition et modernité, dans le respect des artisans et de l'environnement.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6 mb-8">
+                            <div>
+                                <h4 class="font-semibold text-primary mb-2">Qualité Exceptionnelle</h4>
+                                <p class="text-sm text-gray-600">Matériaux premium et finitions impeccables</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary mb-2">Style Intemporel</h4>
+                                <p class="text-sm text-gray-600">Des pièces conçues pour durer dans le temps</p>
+                            </div>
+                        </div>
+                        <button class="bg-primary hover:bg-secondary text-white px-8 py-3 transition-colors duration-300">
+                            En Savoir Plus
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="py-16 bg-dark text-white">
+            <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+                <h2 class="text-3xl font-serif mb-4">Restez Informé</h2>
+                <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Inscrivez-vous à notre newsletter pour recevoir en avant-première nos nouvelles collections et offres exclusives
+                </p>
+                <div class="max-w-md mx-auto flex">
+                    <input 
+                        type="email" 
+                        placeholder="Votre adresse email" 
+                        class="flex-1 px-4 py-3 text-gray-800 focus:outline-none focus:ring-2 focus:ring-secondary"
+                    >
+                    <button class="bg-secondary hover:bg-accent px-6 py-3 transition-colors duration-300">
+                        S'inscrire
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div data-aos="fade-up">
+                    <h3 class="text-2xl font-serif mb-4">Élégance<span class="text-secondary">Parisienne</span></h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Votre destination pour une mode raffinée et intemporelle. Qualité, élégance et excellence.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="font-semibold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Accueil</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Vêtements</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Bijoux</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Chaussures</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Nouveautés</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="font-semibold mb-4">Service Client</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Livraison</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">Retours</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-secondary transition-colors">CGV</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <div class="space-y-2 text-gray-300">
+                        <p class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-secondary"></i>
+                            123 Avenue Montaigne, 75008 Paris
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-secondary"></i>
+                            +33 1 42 68 53 01
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-secondary"></i>
+                            contact@elegance-parisienne.fr
+                        </p>
+                    </div>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-secondary transition-colors">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2024 Élégance Parisienne. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Define product data
+        const featuredProducts = [
+            {
+                "id": 1,
+                "name": "Robe de Soirée en Soie",
+                "description": "Élégance et sophistication",
+                "price": "€289",
+                "image": "https://picsum.photos/400/500?random=5",
+                "badge": "Nouveau"
+            },
+            {
+                "id": 2,
+                "name": "Collier en Or 18 Carats",
+                "description": "Pièce signature",
+                "price": "€450",
+                "image": "https://picsum.photos/400/500?random=6",
+                "badge": null
+            },
+            {
+                "id": 3,
+                "name": "Escarpins en Cuir Verni",
+                "description": "Confort et élégance",
+                "price": "€189",
+                "image": "https://picsum.photos/400/500?random=7",
+                "badge": "Best Seller"
+            },
+            {
+                "id": 4,
+                "name": "Ensemble Tailleur Premium",
+                "description": "Élégance professionnelle",
+                "price": "€320",
+                "image": "https://picsum.photos/400/500?random=8",
+                "badge": null
+            }
+        ];
+
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Prevent default behavior for all anchor tags
+            const anchors = document.querySelectorAll('a');
+            anchors.forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Add your navigation logic here
+                    console.log('Navigation clicked:', this.href);
+                });
+            });
+
+            // Add to cart functionality
+            const addToCartButtons = document.querySelectorAll('button:has(.fa-shopping-bag)');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Add to cart logic
+                    console.log('Product added to cart');
+                    // You can implement cart functionality here
+                });
+            });
+
+            // Newsletter subscription
+            const newsletterForm = document.querySelector('input[type="email"]');
+            const newsletterButton = newsletterForm?.nextElementSibling;
+            
+            if (newsletterButton) {
+                newsletterButton.addEventListener('click', function() {
+                    const email = newsletterForm.value;
+                    if (email && email.includes('@')) {
+                        console.log('Newsletter subscription:', email);
+                        newsletterForm.value = '';
+                        alert('Merci pour votre inscription !');
+                    } else {
+                        alert('Veuillez entrer une adresse email valide.');
+                    }
+                });
+            }
+        });
+
+        // Sticky navigation background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('sticky-nav');
+            } else {
+                header.classList.remove('sticky-nav');
+            }
+        });
+    </script>
+</body>
+</html>
